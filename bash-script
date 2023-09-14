@@ -1,22 +1,15 @@
-#buat mengecek tree sudah terinstall
-if ! command -v tree &> /dev/null;then
-        echo "program tree tidak ditemukan"
+read -p "bang lo mau install apa?" capekk
 
-#meminta respon
-read -p "apakah anda ingin menginstall tree? (y/yes):"
+if command -v "$capekk" &> /dev/null; then
+        echo "udah keinstall bangg"
+                else
 
-#konfirmasi pilihan
-if [ "$confirm" == "y" ] || [ "$confirm" == "yes" ];
-        then
+read -p "ga ada, lanjut install gak? [iya/gak]" permision
 
-#mulai install tree
-        sudo apt-get update
-        sudo apt install tree
-
-echo "program tree berhasil diinstall"
-        else
-echo "instalasi program dibatalkan"
-        fi
-else
-        echo "program tree sudah terinstall"
+        case $permision in (y|Y|iya)
+        apt-get install $capekk -y
+;;
+        *)
+        echo "batalinaja"
+;; esac
 fi
