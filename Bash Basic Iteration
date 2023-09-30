@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for folder in {1..50}; do
+         directory_name="direktori$folder"
+
+        mkdir -p "$directory_name" 
+        echo "good $directory_name sudah jadi"
+
+for file in {1..50}; do
+        file_name="$directory_name/file$file.txt"
+
+        echo -e "hello, saya adalah file ke $file\nsaya dibuat pada: $(date)" > "$file_name" 
+        echo "good $file_name sudah jadi"
+
+  done
+done
+
